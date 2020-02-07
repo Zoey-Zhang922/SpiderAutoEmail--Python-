@@ -88,29 +88,16 @@ class Spider:
 以下为执行爬虫方法所需的参数
 """
 # 定义URL（请注意带上url最后面的问号，URL中的参数或者表单中的参数都在formdata里面填写。然后urllib提供了parse会自动编译且生成完整的请求URL（和在浏览器地址栏中见到的一样）
-url = "https://pacaio.match.qq.com/irs/rcd?"
+url = "XXX"
 
 # 伪装header
 header = {
-    "accept-language": "en, en - US;q = 0.9, zh - CN;q = 0.8, zh;q = 0.7",
-    "cookie": "tvfe_boss_uuid = 8def89799ee6e2e3;pgv_pvid = 2262001280;pac_uid = 0_5dc81b3d0e7e1;pgv_pvi = "
-              "3285164032;RK = XK7EpJdYPj;ptcz = "
-              "3ff8692644e238f507420b2b5479e476dd7e4ad1f6ffda16a74647bcc0f52e10;pgv_info = ssid = "
-              "s133614294;ts_uid = 2404414514;ts_last = new.qq.com / ch / world /;ad_play_index = 85",
-    "user-agent": "Mozilla / 5.0(WindowsNT10.0;Win64;x64) AppleWebKit / 537.36(KHTML, likeGecko) Chrome / "
-                  "79.0.3945.88Safari / 537.36",
+    # 伪装成浏览器，最主要的是要有user-agent。其他数据根据网站要求酌情决定，不确定时可逐行注释，然后运行尝试。
 }
 
-# 解析formdata并进行编译
+# 解析formdata并进行编译（可通过fiddler软件辅助查看请求的时候都向目标网站传递了哪些参数）
 formdata = {
-    "cid": "135",
-    "token": "6e92c215fb08afa901ac31eca115a34f",
-    "ext": "world",
-    "page": "1",
-    "expIds": "20200131009129|20200203A049ND|20200203A04L93|20200203A0271M|20200203A009T6",
-    "expIds": "20200201A04Q9M|20200201A0CE83|20200201A0HESF|20200201A0FRVA|20200201A09EEK|20200201V06Y9D"
-              "|20200201A04I6R|20200121A0ME7R|20200201V05BCV|20200201A0HESC",
-    "callback": "__jp9"
+
 }
 
 # 通过代理IP和端口访问，以避免在频繁使用同一IP访问时被对方封掉。
@@ -122,8 +109,8 @@ proxy = {
 """
 以下为执行发送邮件方法所需的参数
 """
-recei_list = ["zhangzeyu922@yeah.net"]
-email_title = "每日国际新闻晚报"
+recei_list = ["xxx"]  # 将接受方的邮箱地址存在一个列表里面
+email_title = "XXXXX"  # 邮件标题
 
 # 创建一个爬虫实例对象，以供主函数调用
 spider_tecent_news = Spider(url, header, formdata, proxy)

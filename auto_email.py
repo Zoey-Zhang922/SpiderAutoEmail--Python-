@@ -20,16 +20,16 @@ from email.mime import text  # import MIMEText
 def Send_email(recei_list, email_title, email_content):
     print("----------准备发送邮件----------")
     mail_info = {
-        "from": "970645283@qq.com",  # 自己的邮箱账号，将使用此账号向对方发送邮件
+        "from": "XXX",  # 自己的邮箱账号，将使用此账号向对方发送邮件
         "to": recei_list,  # 接收邮件的对方账号
-        "hostname": "smtp.qq.com",
-        "username": "970645283@qq.com",  # 开通smtp服务的邮箱账号
-        "password": "hbyvrfnxxohjbfhb",  # 开通smtp服务的邮箱授权码，每个邮件代理商规则不同，自行百度（主流有QQ，网易）
+        "hostname": "smtp.qq.com",  # 邮件代理商smtp的地址
+        "username": "XXX",  # 开通smtp服务的邮箱账号
+        "password": "XXX",  # 开通smtp服务的邮箱授权码，每个邮件代理商规则不同，自行百度（主流有QQ，网易）
         "mail_encoding": "utf-8"
     }
 
     try:
-        server = smtplib.SMTP_SSL(mail_info["hostname"], port=465)
+        server = smtplib.SMTP_SSL(mail_info["hostname"], port=465)  # 端口号可在邮件代理商的官网查看
         server.ehlo(mail_info["hostname"])
         server.login(mail_info["username"], mail_info["password"])  # 仅smtp服务器需要验证时
         print("成功登录邮箱服务器")
